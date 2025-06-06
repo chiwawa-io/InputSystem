@@ -33,7 +33,8 @@ namespace Game.Scripts.LiveObjects
         {
             if (_hacked == true)
             {
-                if (Input.GetKeyDown(KeyCode.E))
+                //if (Input.GetKeyDown(KeyCode.E))
+                if (GameInputManager.Instance.InputActions.Player.Interact.triggered || GameInputManager.Instance.InputActions.Hacked.ChangeCameras.triggered)
                 {
                     var previous = _activeCamera;
                     _activeCamera++;
@@ -45,13 +46,17 @@ namespace Game.Scripts.LiveObjects
 
                     _cameras[_activeCamera].Priority = 11;
                     _cameras[previous].Priority = 9;
-                }
 
-                if (Input.GetKeyDown(KeyCode.Escape))
+                }
+                    //if (Input.GetKeyDown(KeyCode.Escape))
+                    if (GameInputManager.Instance.InputActions.Hacked.Exit.triggered)
                 {
                     _hacked = false;
                     onHackEnded?.Invoke();
                     ResetCameras();
+                    _interactableZone.CompleteTask(3);
+                    GameInputManager.Instance.EnablePlayerControls();
+
                 }
             }
         }
@@ -88,7 +93,7 @@ namespace Game.Scripts.LiveObjects
             }
         }
 
-        
+
         IEnumerator HackingRoutine()
         {
             while (_progressBar.value < 1)
@@ -99,15 +104,16 @@ namespace Game.Scripts.LiveObjects
 
             //successfully hacked
             _hacked = true;
-
+            //_interactableZone.CompleteTask(3); broked the id system
 
             //hide progress bar
             _progressBar.gameObject.SetActive(false);
 
             //enable Vcam1
             _cameras[0].Priority = 11;
+            GameInputManager.Instance.EnableHackedControls();
         }
-        
+
         private void OnDisable()
         {
             InteractableZone.onHoldStarted -= InteractableZone_onHoldStarted;
