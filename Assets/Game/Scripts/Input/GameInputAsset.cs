@@ -204,41 +204,31 @@ public partial class @GameInputAsset : IInputActionCollection2, IDisposable
             ]
         },
         {
-            ""name"": ""Forklift"",
-            ""id"": ""a1d50013-5578-4b58-bb98-a7ce81b16e0c"",
-            ""actions"": [
-                {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
-                    ""id"": ""256ae82f-1580-4805-9dd6-48b2c9c01e69"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """",
-                    ""initialStateCheck"": false
-                }
-            ],
-            ""bindings"": [
-                {
-                    ""name"": """",
-                    ""id"": ""1d8819e2-e9bf-4a09-95ae-4b9f7e822133"",
-                    ""path"": """",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                }
-            ]
-        },
-        {
             ""name"": ""Drone"",
             ""id"": ""4b67c820-efb3-4d85-98af-aa615d9e6c87"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
+                    ""name"": ""Tilt"",
+                    ""type"": ""Value"",
+                    ""id"": ""1b8b6385-85c9-44ab-b4bf-cd1f20a8ae66"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UpDown"",
                     ""type"": ""Button"",
-                    ""id"": ""bddd01a7-331f-4f51-88a2-6569a897c536"",
+                    ""id"": ""aaf115ba-671c-4ddf-a92a-aca6e0804555"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Rotate"",
+                    ""type"": ""Button"",
+                    ""id"": ""7f9b0299-2c1f-43ff-90fc-8d08c9558dcd"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """",
@@ -247,15 +237,239 @@ public partial class @GameInputAsset : IInputActionCollection2, IDisposable
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""2f6e461f-c12b-4ed5-903c-44842cab01a3"",
-                    ""path"": """",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""a9a2c919-6cd1-4eaf-b73a-109ccfc78b28"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
+                    ""action"": ""Tilt"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""dbe2e78f-fcc9-4f06-a112-cae84e280fa7"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tilt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""3161d4b7-fb37-46d7-acca-7c092f7be1b6"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tilt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""0db1cc04-a713-45af-8e77-24293de554ed"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tilt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""e7b8f727-e06c-4f52-a39d-d3d80960e922"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tilt"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""f3efb40e-c788-4d27-bcff-45a4f163651f"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""33cb3587-2186-4114-aa4e-2b0015f94070"",
+                    ""path"": ""<Keyboard>/v"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""4725cf04-80c3-4915-ad76-e1f49b4a6a0c"",
+                    ""path"": ""<Keyboard>/space"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""b72bc64f-ae2f-4830-894f-47571d1ef6af"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""7915ab73-9dab-449e-bb6b-768aafff0ffb"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""cb91b47e-9fa8-41fc-a045-1bb4f7fab9d6"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Rotate"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                }
+            ]
+        },
+        {
+            ""name"": ""Forklift"",
+            ""id"": ""a1d50013-5578-4b58-bb98-a7ce81b16e0c"",
+            ""actions"": [
+                {
+                    ""name"": ""Movement"",
+                    ""type"": ""Value"",
+                    ""id"": ""256ae82f-1580-4805-9dd6-48b2c9c01e69"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""UpDown"",
+                    ""type"": ""Button"",
+                    ""id"": ""9f32ac17-8bef-4136-aa86-f709af630f5e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""79b9ada0-8381-4d53-8acd-19d338751462"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""a3ae729c-dcc6-4748-a722-1a92b020ed12"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""29501aa5-2eac-47f7-9efa-ea2c0255ec0f"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""ddef9432-31ba-48f9-abed-9d51657644f7"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""934e5430-5df8-4672-945a-84ec112c3085"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Movement"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""8931dda1-21bb-4e1b-87f7-31778291abcf"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""5de3961f-1b61-43ea-b564-b94931dd7b10"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""b72b3721-5585-463a-9e9a-d37f2f2c8502"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UpDown"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -272,12 +486,15 @@ public partial class @GameInputAsset : IInputActionCollection2, IDisposable
         m_Hacked = asset.FindActionMap("Hacked", throwIfNotFound: true);
         m_Hacked_ChangeCameras = m_Hacked.FindAction("ChangeCameras", throwIfNotFound: true);
         m_Hacked_Exit = m_Hacked.FindAction("Exit", throwIfNotFound: true);
-        // Forklift
-        m_Forklift = asset.FindActionMap("Forklift", throwIfNotFound: true);
-        m_Forklift_Newaction = m_Forklift.FindAction("New action", throwIfNotFound: true);
         // Drone
         m_Drone = asset.FindActionMap("Drone", throwIfNotFound: true);
-        m_Drone_Newaction = m_Drone.FindAction("New action", throwIfNotFound: true);
+        m_Drone_Tilt = m_Drone.FindAction("Tilt", throwIfNotFound: true);
+        m_Drone_UpDown = m_Drone.FindAction("UpDown", throwIfNotFound: true);
+        m_Drone_Rotate = m_Drone.FindAction("Rotate", throwIfNotFound: true);
+        // Forklift
+        m_Forklift = asset.FindActionMap("Forklift", throwIfNotFound: true);
+        m_Forklift_Movement = m_Forklift.FindAction("Movement", throwIfNotFound: true);
+        m_Forklift_UpDown = m_Forklift.FindAction("UpDown", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -432,48 +649,19 @@ public partial class @GameInputAsset : IInputActionCollection2, IDisposable
     }
     public HackedActions @Hacked => new HackedActions(this);
 
-    // Forklift
-    private readonly InputActionMap m_Forklift;
-    private IForkliftActions m_ForkliftActionsCallbackInterface;
-    private readonly InputAction m_Forklift_Newaction;
-    public struct ForkliftActions
-    {
-        private @GameInputAsset m_Wrapper;
-        public ForkliftActions(@GameInputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Forklift_Newaction;
-        public InputActionMap Get() { return m_Wrapper.m_Forklift; }
-        public void Enable() { Get().Enable(); }
-        public void Disable() { Get().Disable(); }
-        public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(ForkliftActions set) { return set.Get(); }
-        public void SetCallbacks(IForkliftActions instance)
-        {
-            if (m_Wrapper.m_ForkliftActionsCallbackInterface != null)
-            {
-                @Newaction.started -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnNewaction;
-            }
-            m_Wrapper.m_ForkliftActionsCallbackInterface = instance;
-            if (instance != null)
-            {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
-            }
-        }
-    }
-    public ForkliftActions @Forklift => new ForkliftActions(this);
-
     // Drone
     private readonly InputActionMap m_Drone;
     private IDroneActions m_DroneActionsCallbackInterface;
-    private readonly InputAction m_Drone_Newaction;
+    private readonly InputAction m_Drone_Tilt;
+    private readonly InputAction m_Drone_UpDown;
+    private readonly InputAction m_Drone_Rotate;
     public struct DroneActions
     {
         private @GameInputAsset m_Wrapper;
         public DroneActions(@GameInputAsset wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Drone_Newaction;
+        public InputAction @Tilt => m_Wrapper.m_Drone_Tilt;
+        public InputAction @UpDown => m_Wrapper.m_Drone_UpDown;
+        public InputAction @Rotate => m_Wrapper.m_Drone_Rotate;
         public InputActionMap Get() { return m_Wrapper.m_Drone; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -483,20 +671,73 @@ public partial class @GameInputAsset : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_DroneActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnNewaction;
+                @Tilt.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnTilt;
+                @Tilt.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnTilt;
+                @Tilt.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnTilt;
+                @UpDown.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnUpDown;
+                @UpDown.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnUpDown;
+                @UpDown.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnUpDown;
+                @Rotate.started -= m_Wrapper.m_DroneActionsCallbackInterface.OnRotate;
+                @Rotate.performed -= m_Wrapper.m_DroneActionsCallbackInterface.OnRotate;
+                @Rotate.canceled -= m_Wrapper.m_DroneActionsCallbackInterface.OnRotate;
             }
             m_Wrapper.m_DroneActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @Tilt.started += instance.OnTilt;
+                @Tilt.performed += instance.OnTilt;
+                @Tilt.canceled += instance.OnTilt;
+                @UpDown.started += instance.OnUpDown;
+                @UpDown.performed += instance.OnUpDown;
+                @UpDown.canceled += instance.OnUpDown;
+                @Rotate.started += instance.OnRotate;
+                @Rotate.performed += instance.OnRotate;
+                @Rotate.canceled += instance.OnRotate;
             }
         }
     }
     public DroneActions @Drone => new DroneActions(this);
+
+    // Forklift
+    private readonly InputActionMap m_Forklift;
+    private IForkliftActions m_ForkliftActionsCallbackInterface;
+    private readonly InputAction m_Forklift_Movement;
+    private readonly InputAction m_Forklift_UpDown;
+    public struct ForkliftActions
+    {
+        private @GameInputAsset m_Wrapper;
+        public ForkliftActions(@GameInputAsset wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Movement => m_Wrapper.m_Forklift_Movement;
+        public InputAction @UpDown => m_Wrapper.m_Forklift_UpDown;
+        public InputActionMap Get() { return m_Wrapper.m_Forklift; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(ForkliftActions set) { return set.Get(); }
+        public void SetCallbacks(IForkliftActions instance)
+        {
+            if (m_Wrapper.m_ForkliftActionsCallbackInterface != null)
+            {
+                @Movement.started -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnMovement;
+                @Movement.performed -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnMovement;
+                @Movement.canceled -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnMovement;
+                @UpDown.started -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnUpDown;
+                @UpDown.performed -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnUpDown;
+                @UpDown.canceled -= m_Wrapper.m_ForkliftActionsCallbackInterface.OnUpDown;
+            }
+            m_Wrapper.m_ForkliftActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Movement.started += instance.OnMovement;
+                @Movement.performed += instance.OnMovement;
+                @Movement.canceled += instance.OnMovement;
+                @UpDown.started += instance.OnUpDown;
+                @UpDown.performed += instance.OnUpDown;
+                @UpDown.canceled += instance.OnUpDown;
+            }
+        }
+    }
+    public ForkliftActions @Forklift => new ForkliftActions(this);
     public interface IPlayerActions
     {
         void OnWalk(InputAction.CallbackContext context);
@@ -509,12 +750,15 @@ public partial class @GameInputAsset : IInputActionCollection2, IDisposable
         void OnChangeCameras(InputAction.CallbackContext context);
         void OnExit(InputAction.CallbackContext context);
     }
-    public interface IForkliftActions
-    {
-        void OnNewaction(InputAction.CallbackContext context);
-    }
     public interface IDroneActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnTilt(InputAction.CallbackContext context);
+        void OnUpDown(InputAction.CallbackContext context);
+        void OnRotate(InputAction.CallbackContext context);
+    }
+    public interface IForkliftActions
+    {
+        void OnMovement(InputAction.CallbackContext context);
+        void OnUpDown(InputAction.CallbackContext context);
     }
 }
