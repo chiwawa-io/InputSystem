@@ -37,6 +37,7 @@ namespace Game.Scripts.LiveObjects
                 onDriveModeEntered?.Invoke();
                 _driverModel.SetActive(true);
                 _interactableZone.CompleteTask(5);
+                GameInputManager.Instance.EnableForkliftControls();
             }
         }
 
@@ -46,7 +47,7 @@ namespace Game.Scripts.LiveObjects
             _forkliftCam.Priority = 9;            
             _driverModel.SetActive(false);
             onDriveModeExited?.Invoke();
-            
+            GameInputManager.Instance.EnablePlayerControls();
         }
 
         private void Update()
@@ -63,8 +64,24 @@ namespace Game.Scripts.LiveObjects
 
         private void CalcutateMovement()
         {
-            float h = Input.GetAxisRaw("Horizontal");
-            float v = Input.GetAxisRaw("Vertical");
+            //float h = Input.GetAxisRaw("Horizontal");
+            //float v = Input.GetAxisRaw("Vertical");
+            //var direction = new Vector3(0, 0, v);
+            //var velocity = direction * _speed;
+
+            //transform.Translate(velocity * Time.deltaTime);
+
+            //if (Mathf.Abs(v) > 0)
+            //{
+            //    var tempRot = transform.rotation.eulerAngles;
+            //    tempRot.y += h * _speed / 2;
+            //    transform.rotation = Quaternion.Euler(tempRot);
+            //}
+
+            var input = GameInputManager.Instance.InputActions.Forklift.Movement.ReadValue<Vector2>();
+            float h = input.x;
+            float v = input.y;
+
             var direction = new Vector3(0, 0, v);
             var velocity = direction * _speed;
 
@@ -80,9 +97,14 @@ namespace Game.Scripts.LiveObjects
 
         private void LiftControls()
         {
-            if (Input.GetKey(KeyCode.R))
+            //if (Input.GetKey(KeyCode.R))
+            //    LiftUpRoutine();
+            //else if (Input.GetKey(KeyCode.T))
+            //    LiftDownRoutine();
+            var input = GameInputManager.Instance.InputActions.Forklift.UpDown.ReadValue<float>();
+            if (input > 0)
                 LiftUpRoutine();
-            else if (Input.GetKey(KeyCode.T))
+            else if (input < 0)
                 LiftDownRoutine();
         }
 
