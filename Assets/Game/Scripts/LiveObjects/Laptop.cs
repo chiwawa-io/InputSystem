@@ -99,7 +99,7 @@ namespace Game.Scripts.LiveObjects
 
             //successfully hacked
             _hacked = true;
-            _interactableZone.CompleteTask(3);
+
 
             //hide progress bar
             _progressBar.gameObject.SetActive(false);
