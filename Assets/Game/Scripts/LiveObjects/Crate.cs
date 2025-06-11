@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditorInternal;
 using UnityEngine;
 
 namespace Game.Scripts.LiveObjects
@@ -26,6 +25,7 @@ namespace Game.Scripts.LiveObjects
 
         private void InteractableZone_onZoneBigBreakComplete(InteractableZone zone)
         {
+            if(zone != _interactableZone) return; // Ensure the zone matches
 
             if (_isReadyToBreak == false && _brakeOff.Count > 0)
             {
@@ -54,13 +54,13 @@ namespace Game.Scripts.LiveObjects
 
         private void InteractableZone_onZoneMultiBreakComplete(InteractableZone zone)
         {
+            if (zone != _interactableZone) return; // Ensure the zone matches
 
             if (_isReadyToBreak == false && _brakeOff.Count > 0)
             {
                 _wholeCrate.SetActive(false);
                 _brokenCrate.SetActive(true);
                 _isReadyToBreak = true;
-                GameInputManager.Instance.HoldBreakEnable();
             }
 
             if (_isReadyToBreak) //Crate zone            

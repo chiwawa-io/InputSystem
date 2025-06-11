@@ -25,7 +25,6 @@ public class GameInputManager : MonoBehaviour
     {
         InputActions.Enable();
         EnablePlayerControls();
-        InputActions.Player.HoldBreak.Disable();
     }
 
     private void OnDisable()

@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using Game.Scripts.UI;
 using UnityEngine.InputSystem;
@@ -273,6 +271,7 @@ namespace Game.Scripts.LiveObjects
 
             if (_inventoryIcon != null)
                 UIManager.Instance.UpdateInventoryDisplay(_inventoryIcon);
+            _actionPerformed = true;
 
             onZoneInteractionComplete?.Invoke(this);
         }
